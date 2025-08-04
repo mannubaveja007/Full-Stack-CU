@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 4</title>
+
+</head>
+<body>
+    <h1>Live Character counter </h1>
+    <textarea id="input" placeholder="Start typing...."></textarea>
+    <h2 id="char"><div> Character : 0 </div></h2>
+</body>
+<script>
+    const inputelement = document.getElementById("input");
+    const char = document.getElementById("char");window.addEventListener("input",()=>{
+            char.innerHTML = `<div> Character : ${inputelement.value.length} </div>`
+    })
+</script>
+</html>
