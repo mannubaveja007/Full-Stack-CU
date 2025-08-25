@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouseoposition</title>
+    <title>Mouse Position</title>
 </head>
 <body>
     <h2>showing the current mouse position on mousemove event</h2>
     <p id="p">X : 0 , Y : 0</p>
-    <svg id="svgpos" width="1100" height="500">
-        <rect x="10" y="10" width="1000" height="475" stroke="black" stroke-width="1" fill="white" />
+    <svg id="svgpos" width="1900" height="1000">
+        <rect x="10" y="10" width="1700" height="900" stroke="black" stroke-width="1" fill="white" />
     </svg>
-
 
     <script>
         const svg =  document.getElementById("svgpos");
@@ -29,24 +28,22 @@
         })
 
         svg.addEventListener('mousemove',(e)=>{
-            if(drawing){
+            if(drawing && path){
                 let d = path.getAttribute("d");
                 d += ` L ${e.offsetX} ${e.offsetY}`;
                 path.setAttribute("d",d);
             }
+            p.innerHTML = `X : ${e.offsetX} , Y : ${e.offsetY}`;
         })
 
         svg.addEventListener("mouseup",(e)=>{
             drawing = false;
         })
 
-        svg.addEventListener("mouseover",(e)=>{
+        svg.addEventListener("mouseleave",(e)=>{
             drawing = false;
         })
 
-        document.getElementById("svgpos").addEventListener("mousemove",(e)=>{
-            document.getElementById("p").innerHTML = `X : ${e.offsetX} , Y : ${e.offsetY}`;
-        })
 
     </script>
 </body>
