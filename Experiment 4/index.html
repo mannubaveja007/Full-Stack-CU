@@ -13,7 +13,8 @@
 </body>
 <script>
     const inputelement = document.getElementById("input");
-    const char = document.getElementById("char");window.addEventListener("input",()=>{
+    const char = document.getElementById("char");
+    window.addEventListener("input",()=>{
             char.innerHTML = `<div> Character : ${inputelement.value.length} </div>`
     })
 </script>
